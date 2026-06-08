@@ -166,7 +166,7 @@ enum BrewProcess {
                 if process.isRunning {
                     brewProcessLogger.error("brew command timed out after \(timeout, privacy: .public)s")
                     process.terminate()
-                    _ = guard_.resume(with: .failure(BrewProcessError.timeout))
+                    _ = onceGuard.resume(with: .failure(BrewProcessError.timeout))
                 }
             }
         }

@@ -190,7 +190,7 @@ private enum DiagnosticProcess {
                 }
                 if process.isRunning {
                     process.terminate()
-                    _ = guard_.resume(with: DiagnosticResult(
+                    _ = onceGuard.resume(with: DiagnosticResult(
                         exitCode: 124,
                         output: String(localized: "Command timed out.")
                     ))
